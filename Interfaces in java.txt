@@ -1,0 +1,38 @@
+java notes from lecture.....
+
+Interfaces :
+> Blue print of a class.
+> all methods have public abstract by default in a interface : NO INSTACE CAN BE CREATED FOR INTERFACE(OBJECT)
+> you cant write implemenation of a abstract methods in interface
+> A abstract class can have normal methods and instance variable thus they have constructor, but interface only abstract methods,default, and static..no constructor.also one class extends to one abstract class only..but with interface a class can implement multiple interfaces allowing multiple inheritance
+> USING STATIC YOU CAN WRITE A DEFFINATION OF METHOD, as its static so no object is needed for it.
+> the methods/variables which are static can be directly used without creating obj,...eg: interface_name.method_name/variable_name.
+> static methods of an interface can be only accessed by interface name, and not by the inheriting class
+> DEFAULT keyword: in interface, implemented within interface, can be only accessed by inherting class by calling method_name, IT is a concrete method eg: 
+
+public interface a{ default void run(){sout('running ...')}}
+public class b implements a {psvm(String args[] ){
+ b obj = new b();
+ b.run();
+
+}}
+also u can call other methods using this and it will call its current instance..eg interface a{ void eat(){}
+  default void info(){ this.eat();
+  sout('default method call');
+}
+}
+public class b implement a(){
+psvm(String args[]{
+ b obj = new b();
+ b.info();   //will print the implemented eat of b class.
+ 
+
+})
+}
+
+
+YOU CAN CREATE A MAIN METHOD WITHIN INTERFACE..eg ..
+public interface a{ 
+psvm(String... args){
+sout('main method is running');
+}
