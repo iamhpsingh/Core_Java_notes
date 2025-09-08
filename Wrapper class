@@ -1,0 +1,57 @@
+wrapper : wraps primitive data types to wrapper class..eg:
+List<int> ls = new ArrayList<>();   // will give error as int is primitive, and has no methods for it.
+List<Integer> ls = new ArrayList<>();   //works
+Integer a = null; //but int can be only int a =0; and not like int int a =null;
+a = Integer.max(2,4);
+String b = Integer.toBinaryString(2);
+int a = Integer.valueOf(str);
+ 
+Primitive Data Type	    Wrapper Class
+byte			              Byte
+short			              Short
+int			                Integer
+long			              Long
+float			              Float
+double			            Double
+boolean			            Boolean
+char			              Character
+
+
+Auto Boxing and Unboxing
+boxing : automatically wraps a primitive into wrapper class obj...eg : Integer a = 1;   //you dont need to type Integer.valueOf(1); its automatically done
+unboxing : automatically unboxes wrapper class data to primitve ...eg : int b = a ;     //int b = b.intValue(a); no need 
+
+Examples and working primitive vs wrapper :
+ ------------ Primitive ----------
+    public class Main {
+        public static int newvalue(int num) {
+            num = 10;                                                   // This changes the *copy* of num
+            return num;                                                 // Return the modified copy
+        }
+        
+
+        public static void main(String[] args) {
+            int myInt = 5;
+            System.out.println("Original myInt: " + myInt);             // Output: 5
+            newvalue(myInt);                                            // Output: 5 only, wont change the value
+            myInt = newvalue(myInt);                                    // Assign the returned value back
+            System.out.println("Modified myInt: " + myInt);             // Output: 15
+        }
+    }
+
+--------Wrapper class------------
+Integer wrapper class is immutable , that means you can't change the value of an Integer object directly—you have to create a new one
+public class Main {
+    public static Integer newValue(Integer num) {
+        num = 10;                             // This reassigns the reference to a new Integer object
+        return num;                           // Return the new Integer object
+    }
+
+    public static void main(String[] args) {
+        Integer myInt = 5;
+        System.out.println("Original myInt: " + myInt);  // Output: 5
+        newValue(myInt);                                 // This won't change myInt
+        myInt = newValue(myInt);                         // Reassign with returned value
+        System.out.println("Modified myInt: " + myInt);  // Output: 10
+    }
+}
